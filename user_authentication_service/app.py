@@ -50,3 +50,14 @@ def logout():
         return redirect('/')
     else:
         abort(403)
+
+
+@app.route("/profile", methods=["GET"])
+def profile():
+    """profile method"""
+    try:
+        session_id = request.cookies.get("session_id")
+        user = AUTH.get_user_from_session_id(session_id)
+        return jsonify({"email": user.email}), 200
+    except Exception:
+        abort(403)
