@@ -66,10 +66,10 @@ class TestMemoize(unittest.TestCase):
                 """A Property Method"""
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', returned_value=42) as patched:
+        with patch.object(TestClass, 'a_method', return_value=42) as patched:
             test_class = TestClass()
-            real_return = test_class.a_method
-            real_return = test_class.a_method
+            real_return = test_class.a_property
+            real_return = test_class.a_property
 
             self.assertEqual(real_return, 42)
             patched.assert_called_once()
