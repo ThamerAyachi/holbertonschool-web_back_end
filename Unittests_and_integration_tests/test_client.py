@@ -64,3 +64,38 @@ class TestGithubOrgClient(unittest.TestCase):
         test_class = GithubOrgClient('test')
         result = test_class.has_license(repo, license_key)
         self.assertEqual(result, expected)
+
+    @patch('client.GithubOrgClient.org', new_callable=PropertyMock)
+    def test_public_repos_url(self, mock_org):
+        """Test _public_repos_url method"""
+        # Mock the org property to return a known payload
+        mock_org.return_value = {"repos_url": "http://example.com/repos"}
+
+        test_class = GithubOrgClient('test')
+        url = test_class._public_repos_url
+        expected_url = "http://example.com/repos"
+
+        self.assertEqual(url, expected_url)
+
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """Integration test"""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.get_patcher = patch('requests.get', side_effect=[
+            cls.org_payload, cls.repos_payload
+        ])
+        cls.mocked_get = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.get_patcher.stop()
+
+    def test_public_repos(self):
+        """test public repos """
+
+    def test_public_repos_with_license(self):
+        """test public with license"""
+
+if __name__ == '__main__':
+    unittest.main()
