@@ -1,17 +1,17 @@
 const getListStudents = () => [
   {
-    id: 1,
     fistName: 'Guillaume',
+    id: 1,
     location: 'San Francisco',
   },
   {
-    id: 2,
     fistName: 'James',
+    id: 2,
     location: 'Columbia',
   },
   {
-    id: 5,
     fistName: 'Serena',
+    id: 5,
     location: 'San Francisco',
   },
 ];
