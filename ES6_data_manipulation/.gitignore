@@ -1,0 +1,5 @@
+# Node envirement
+node_modules
+
+# Test Envirement
+*main.js
