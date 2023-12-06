@@ -21,8 +21,9 @@ const countStudents = (path) => {
 
   const fields = {};
   for (const student of students) {
-    if (!fields[student[3].replace('\r', '')])
+    if (!fields[student[3].replace('\r', '')]) {
       fields[student[3].replace('\r', '')] = [];
+    }
     fields[student[3].replace('\r', '')].push(student[0]);
   }
 
