@@ -1,6 +1,3 @@
-const getStudentsByLocation = (list, location) => {
-  // eslint-disable-next-line arrow-body-style
-  return list.filter((student) => student.location === location);
-};
-
-export default getStudentsByLocation;
+export default function getStudentsByLocation(list, city) {
+  return list.filter((student) => student.location === city);
+}
