@@ -13,7 +13,7 @@ const countStudents = (path) => {
 
   let students = content.filter((student) => student);
 
-  students = students.map((student) => student.split[',']);
+  students = students.map((student) => student.split(','));
 
   const NUMBER_OF_STUDENTS = students.length ? students.length - 1 : 0;
 
@@ -21,8 +21,9 @@ const countStudents = (path) => {
 
   const fields = {};
   for (const student of students) {
-    if (!fields[student[3]]) fields[student[3]] = [];
-    fields[student[3]].push(student[0]);
+    if (!fields[student[3].replace('\r', '')])
+      fields[student[3].replace('\r', '')] = [];
+    fields[student[3].replace('\r', '')].push(student[0]);
   }
 
   delete fields.field;
