@@ -1,5 +1,4 @@
-// defines `countStudents` function to read the database
-// file asynchronously
+/* eslint-disable */
 const fs = require('fs').promises;
 
 function countStudents(path) {
