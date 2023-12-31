@@ -2,7 +2,6 @@ import redis from 'redis';
 import { promisify } from 'util';
 
 const client = redis.createClient();
-const hsetAsync = promisify(client.hset).bind(client);
 
 const data = [
   {
